@@ -6,10 +6,13 @@ class Router{
         $this->App = new App($config);
         
         switch($urlPathParts[0]){
-            case "Home":
+            case "navigation":
                 $this->App->startApp($urlPathParts);
             break;
-            case "About":
+            case "about":
+                $this->App->startApp($urlPathParts);
+            break;
+            case "contact":
                 $this->App->startApp($urlPathParts);
             break;
             default:
