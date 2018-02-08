@@ -6,11 +6,7 @@ body{
     width: 100%;
     text-align: center;
 }
-img{
-    border-radius:50%;
-    width: 250px;
-    height: 250px;
-    }
+
 ul{
   list-style-type:none;
   justify-content:center;
