@@ -3,15 +3,45 @@
 class mycontroller extends AppController{
     public function __construct(){
      
-}
+    }
     public function index(){
-        $menuItems = array("1"=>array("title"=>"Home","url"=>"./views/navigation.php"),"2"=>array("title"=>"About","url"=>"./views/about.php"),"3"=>array("title"=>"Contact","url"=>'./views/contact.php')); 
         $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
-        $data=serialize($links);
-        $menu=serialize($menuItems);
-        $this->getView("navigation",$data,$menu);
-        $this->getView("header",$data);
-        $this->getView("footer",$data); 
+        $dropDownLinks=serialize($links);
+        $this->getView("header",array("pagename"=>"home"),$dropDownLinks);
+        $this->getView("body");
+        $this->getView("footer"); 
+    } 
+    public function contact(){
+     
+        $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
+        $dropDownLinks=serialize($links);
+
+        $this->getView("header",array("pagename"=>"contact"),$dropDownLinks);
+        $this->getView("contact");
+        $this->getView("footer"); 
+    }
+    //will get all the contact form
+    public function contactRecv(){
+
+        $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
+        $dropDownLinks=serialize($links);
+        $this->getView("header",$dropDownLinks);
+        if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+            echo 'email invalid';
+        }
+        else{
+            echo "valid";
+        }
+        if(!preg_match("/^[a-zA-Z]*$/",$_POST["password"])){
+            echo "Select different password";
+        }
+    }
+    public function ajaxPars(){
+        if(@$_REQUEST["email"]=="mlpeck@fullsail.edu"){
+           echo "welcome"; 
+        }
+        else{
+        echo "bad login";}
     }
 }
 ?>
