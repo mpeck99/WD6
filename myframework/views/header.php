@@ -42,8 +42,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                 <?
-                $links=unserialize($data);
-                foreach($links as $items){
+                $datalinks=unserialize($menu);
+                foreach($datalinks as $items){
                 //var_dump($items["url"]);
                 echo "<li><a href=".$items["url"].">".$items["title"]."</a></li>";
                 }
