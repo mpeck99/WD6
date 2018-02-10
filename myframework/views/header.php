@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,7 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <? include 'assets/styles/style.php'?>
     <title>Morgan Peck Server Side Languages</title>
     <style>
     .active{color:#333}
@@ -56,8 +57,11 @@
               </div>
               <button type="submit" class="btn btn-default">Submit</button>
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Click Me</button>
-              <a href="./controllers/secondcontroller.php">Second Controller</a>
+              <a href="secondcontroller.php">Second Controller</a>
             </form>
+            <ul class="nav navbar-nav">
+            <li<?=@$data["pagename"]=="login"?'class="active"':''?>><a href="login">Login</a></li>
+            </ul>
  
   </div>
 

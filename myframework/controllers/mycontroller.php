@@ -20,28 +20,58 @@ class mycontroller extends AppController{
         $this->getView("contact");
         $this->getView("footer"); 
     }
+    public function login(){
+        $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
+        $dropDownLinks=serialize($links);
+
+        $this->getView("header",array("pagename"=>"login"),$dropDownLinks);
+        $this->getView("login");
+        $this->getView("footer"); 
+    }
+    public function about(){
+        $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
+        $dropDownLinks=serialize($links);
+        $this->getView("header",array("pagename"=>"about"),$dropDownLinks);
+        $this->getView("about");
+        $this->getView("footer"); 
+    }
     //will get all the contact form
     public function contactRecv(){
 
         $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
         $dropDownLinks=serialize($links);
         $this->getView("header",$dropDownLinks);
-        if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
-            echo 'email invalid';
-        }
-        else{
-            echo "valid";
-        }
-        if(!preg_match("/^[a-zA-Z]*$/",$_POST["password"])){
-            echo "Select different password";
-        }
+       
+    }
+    public function loginRecv(){
+        $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
+        $dropDownLinks=serialize($links);
+        $this->getView("header",$dropDownLinks);
+        $this->getView("login");
     }
     public function ajaxPars(){
-        if(@$_REQUEST["email"]=="mlpeck@fullsail.edu"){
-           echo "welcome"; 
+
+
+        if(!filter_var(@$_REQUEST["email"],FILTER_VALIDATE_EMAIL)||!preg_match("/^[a-zA-Z]*$/",
+        empty(@$_REQUEST["password"])|| @$_REQUEST["textBox"]!="")){
+            echo "invalid";
         }
         else{
-        echo "bad login";}
+            echo 'success';
+        }
+
+        
+    }
+    public function loginCheck(){
+
+        if(!filter_var(@$_REQUEST["loginEmail"],FILTER_VALIDATE_EMAIL)){
+            echo "login invalid";
+        }
+        else{
+            echo 'success';
+        }
+
+        
     }
 }
 ?>

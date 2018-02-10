@@ -20,13 +20,43 @@ $("#ajaxsubmit").click(function(){
            url:'/mycontroller/ajaxPars',
            data:{"email":$('#email').val(),"password":$('#password').val()},
            success:function(msg){
-console.log(msg)
-               if(msg=="welcome"){
-                   alert("welcome");
-                   }else{alert("oops")}
+        
+               if(msg=="invalid"){
+                   $("#error").append('<p style="color:red">**Make sure your email is valid and inputs are not left empty!');
+                   
+               }
+               else{
+                $("#error").html("");
+                $('#success').html("");
+                $("#success").append('<p style="color:green">Successfully submitted!</p>');
+               }   
            }
+           
        })
+   
    });
     </script>
+    <script>
+      $("#loginButton").click(function(){
+       $.ajax({
+           method:'POST',
+           url:'/mycontroller/loginCheck',
+           data:{"loginEmail":$('#loginEmail').val(),"loginPassword":$('#loginPassword').val()},
+           success:function(loginmsg){
+        
+               if(loginmsg=="login invalid"){
+                   alert('Please do not leave anything blank');
+                   
+               }
+               else{
+                alert('Your logged in!');
+               }   
+           }
+           
+       });
+       
+   });
+    </script>
+
 </body>
 </html>
