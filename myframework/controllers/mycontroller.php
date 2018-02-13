@@ -17,7 +17,8 @@ class mycontroller extends AppController{
         $dropDownLinks=serialize($links);
 
         $this->getView("header",array("pagename"=>"contact"),$dropDownLinks);
-        $this->getView("contact");
+        $random = substr( md5(rand()), 0, 7);
+        $this->getView("contact",array("cap"=>$random));
         $this->getView("footer"); 
     }
     public function login(){
@@ -41,6 +42,31 @@ class mycontroller extends AppController{
         $links = array("1"=>array("title"=>"Full Sail University","url"=>"https://www.fullsail.edu"),"2"=>array("title"=>"Portfolio","url"=>"https://mpeck99.github.io/Portfolio/"),"3"=>array("title"=>"MovieGo Project","url"=>"https://https://mpeck99.github.io"));
         $dropDownLinks=serialize($links);
         $this->getView("header",$dropDownLinks);
+
+
+        if($_REQUEST["success"]=$_SESSION["success"]==1){
+            
+         if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
+        
+        echo "Email invalid";
+        
+        echo "<br><a href='/mycontroller/contact'>Click here to go back</a>";
+        
+         }else{
+        
+        echo "Email valid";
+        
+        }
+        
+        }else{
+        
+         echo "Invalid captcha";
+        
+        echo "<br><a href='/mycontroller/contact'>Click here to go back</a>";
+        
+        }
+    
+        
        
     }
     public function loginRecv(){

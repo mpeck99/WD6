@@ -51,17 +51,29 @@
                 </ul>
               </li>
             </ul>
-            <form class="navbar-form navbar-left" role="search">
+            <span style="color:red"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:'';?></span>
+            <?if(@$_SESSION["loggedin"]&& @$_SESSION["loggedin"]==1){?>
+              <form class="navbar-form navbar-right form-inline">
+                <a href="/protectedcontroller">Profile</a>
+                <a href="/auth/logout">Logout</a>
+              </form>
+            <?}else{?>
+          <form class="navbar-form navbar-right form-inline" role="search" method="post" action="/auth/login">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" name="username" class="form-control" placeholder="Username">
               </div>
-              <button type="submit" class="btn btn-default">Submit</button>
+              <div class="form-group">
+                <input type="text" name="password" class="form-control" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-default">Login</button></form><?}?>
+            <form class="navbar-form navbar-right form-inline" role="search">
+              <div class="form-group">
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Click Me</button>
-              <a href="secondcontroller.php">Second Controller</a>
+             <!-- <a href="secondcontroller.php">Second Controller</a>-->
             </form>
-            <ul class="nav navbar-nav">
-            <li<?=@$data["pagename"]=="login"?'class="active"':''?>><a href="login">Login</a></li>
-            </ul>
+           <!-- <ul class="nav navbar-nav">
+           <li<?=@$data["pagename"]=="login"?'class="active"':''?>><a href="login">Login</a></li>
+            </ul>-->
  
   </div>
 
