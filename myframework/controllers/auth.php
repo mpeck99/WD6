@@ -6,7 +6,7 @@
 
         public function login(){
         if($_REQUEST["username"] && $_REQUEST["password"]){
-            if($_REQUEST["username"]=="mopeck99@gmail.com"&&$_REQUEST["password"]=="password"){
+            if($_REQUEST["username"]=="morgan"&&$_REQUEST["password"]=="password"){
                 
                 $_SESSION["loggedin"]=1;
 

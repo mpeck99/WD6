@@ -11,7 +11,7 @@ class protectedcontroller extends AppController{
     public function index(){
 
         $this->getView("header",array("pagename"=>"mycontoller"));
-        echo "This is a protected area";
+        echo "<div class='container'>This is a protected area</div>";
     }
 }
 

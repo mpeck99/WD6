@@ -6,7 +6,7 @@ function create_image($cap)
 
 {
 
-unlink("../assets/images/image1.png");
+unlink("./assets/image1.png");
 
 global $image;
 
@@ -38,18 +38,26 @@ $text_color = imagecolorallocate($image, 0, 0, 0);
 
 ImageString($image, 22, 30, 22, $cap, $text_color);
 
-imagepng($image, "../assets/images/image1.png");
+imagepng($image, "./assets/image1.png");
 
 }
 $_SESSION["success"]="success";
 create_image($data["cap"]);
 
-echo "<img src='../assets/images/image1.png'>";
+echo "<img src='../assets/image1.png'>";
 
 ?>
+
 <div id="success" class="success"></div>
 
 <form action="contactRecv" method="POST">
+<div>
+
+<label for="exampleInputEmail1">Enter Captcha </label>
+
+<input name="captcha" type="captcha" id="captcha"  placeholder="">
+
+</div>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input name="email" type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
@@ -107,13 +115,6 @@ echo "<img src='../assets/images/image1.png'>";
       Did you double check everything?
     </label>
   </div>
-  <div>
-
-<label for="exampleInputEmail1">Enter Captcha </label>
-
-<input name="captcha" type="captcha" id="captcha"  placeholder="">
-
-</div>
   <button id="formButton" type="submit" class="btn btn-primary">Submit</button>
   <input type="button" value="Ajax Submit" class="btn" id="ajaxsubmit">
 </form>

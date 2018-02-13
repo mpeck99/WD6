@@ -44,25 +44,26 @@ class mycontroller extends AppController{
         $this->getView("header",$dropDownLinks);
 
 
-        if($_REQUEST["success"]=$_SESSION["success"]==1){
+        if($_POST["captcha"]=$_SESSION["success"]=="success"){
             
          if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
         
-        echo "Email invalid";
+        echo "<div class='container'>Email invalid";
         
-        echo "<br><a href='/mycontroller/contact'>Click here to go back</a>";
+        echo "<br><a href='/mycontroller/contact'>Click here to go back</a></div>";
         
          }else{
         
-        echo "Email valid";
+        echo "<div class='container'>Email Sent!";
+        echo "<br><a href='/mycontroller/contact'>Click here to go back</a></div>";
         
         }
         
         }else{
         
-         echo "Invalid captcha";
+         echo "<div class='container'>Invalid captcha";
         
-        echo "<br><a href='/mycontroller/contact'>Click here to go back</a>";
+        echo "<br><a href='/mycontroller/contact'>Click here to go back</a></div>";
         
         }
     

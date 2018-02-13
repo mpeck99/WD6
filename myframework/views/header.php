@@ -35,9 +35,9 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-            <li <?=@$data["pagename"]=="home"?'class="active"':''?>><a href="index">Home</a></li>
-                <li <?=@$data["pagename"]=="about"?'class="active"':''?>><a href="about">About</a></li>
-                <li <?=@$data["pagename"]=="contact"?'class="active"':''?>><a href="contact">Contact Form</a></li>
+            <li <?=@$data["pagename"]=="home"?'class="active"':''?>><a href="/mycontroller">Home</a></li>
+                <li <?=@$data["pagename"]=="about"?'class="active"':''?>><a href="/mycontroller/about">About</a></li>
+                <li <?=@$data["pagename"]=="contact"?'class="active"':''?>><a href="/mycontroller/contact">Contact Form</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links<span class="caret"></span></a>
                 <ul class="dropdown-menu">
@@ -51,9 +51,8 @@
                 </ul>
               </li>
             </ul>
-            <span style="color:red"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:'';?></span>
             <?if(@$_SESSION["loggedin"]&& @$_SESSION["loggedin"]==1){?>
-              <form class="navbar-form navbar-right form-inline">
+              <form class="navbar-form navbar-right">
                 <a href="/protectedcontroller">Profile</a>
                 <a href="/auth/logout">Logout</a>
               </form>
@@ -65,7 +64,7 @@
               <div class="form-group">
                 <input type="text" name="password" class="form-control" placeholder="Password">
               </div>
-              <button type="submit" class="btn btn-default">Login</button></form><?}?>
+              <button type="submit" class="btn btn-default">Login</button><span style="color:red; margin:10px"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:'';?></span></form><?}?>
             <form class="navbar-form navbar-right form-inline" role="search">
               <div class="form-group">
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Click Me</button>
