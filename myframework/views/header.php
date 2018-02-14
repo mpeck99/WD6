@@ -51,6 +51,7 @@
                 </ul>
               </li>
             </ul>
+            
             <?if(@$_SESSION["loggedin"]&& @$_SESSION["loggedin"]==1){?>
               <form class="navbar-form navbar-right">
                 <a href="/protectedcontroller">Profile</a>

@@ -41,7 +41,7 @@ ImageString($image, 22, 30, 22, $cap, $text_color);
 imagepng($image, "./assets/image1.png");
 
 }
-$_SESSION["success"]="success";
+$_SESSION["success"]=$data["cap"];
 create_image($data["cap"]);
 
 echo "<img src='../assets/image1.png'>";

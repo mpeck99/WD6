@@ -44,7 +44,7 @@ class mycontroller extends AppController{
         $this->getView("header",$dropDownLinks);
 
 
-        if($_POST["captcha"]=$_SESSION["success"]=="success"){
+        if($_POST["captcha"]==$_SESSION["success"]){
             
          if(!filter_var($_POST["email"],FILTER_VALIDATE_EMAIL)){
         
