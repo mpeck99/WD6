@@ -54,8 +54,14 @@
             
             <?if(@$_SESSION["loggedin"]&& @$_SESSION["loggedin"]==1){?>
               <form class="navbar-form navbar-right">
-                <a href="/protectedcontroller">Profile</a>
+              <ul class="nav navbar-nav">
+              <li <?=@$data["pagename"]=="profile"?'class="active"':''?>>
+                <a href="/profile">Profile</a>
+                </li>
+                <li>
                 <a href="/auth/logout">Logout</a>
+                </li>
+                </ul>
               </form>
             <?}else{?>
           <form class="navbar-form navbar-right form-inline" role="search" method="post" action="/auth/login">
