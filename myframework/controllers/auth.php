@@ -44,5 +44,4 @@
            header("Location:/mycontroller");
         }
     }
-
 ?>

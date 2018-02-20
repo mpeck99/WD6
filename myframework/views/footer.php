@@ -1,4 +1,3 @@
-
 <footer class="fixed-bottom" style="text-align:center">
 <p>Morgan Peck 2018</p>
 </footer>
@@ -56,7 +55,6 @@ $("#ajaxsubmit").click(function(){
        });
        
    });
-    </script>
-
+</script>
 </body>
 </html>

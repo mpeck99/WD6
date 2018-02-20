@@ -17,10 +17,7 @@ class about extends AppController{
         $this->getView("footer");
     }
     public function addItem(){
-        var_dump($_REQUEST);
         $this->parent->getModel("fruits")->add("insert into fruit_table (name) values (:name)",array(":name"=>$_REQUEST["name"]));
         header("Location:/about");
     }
-}
-
-?>
+}?>
