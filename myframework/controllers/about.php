@@ -25,19 +25,17 @@ class about extends AppController{
         header("Location:/about");
     }
     public function deleteItem(){
-        $id=$_REQUEST["id"];
         $this->parent->getModel("fruits")->delete("DELETE from fruits.fruit_table where fruit_table.id=(:id)",array(":id"=>$_REQUEST["id"]));
        header("Location:/about");
     }
     public function updateForm(){
         $this->getView('header',array("pagename"=>"about"));
         $this->showList();
-        $this->getView("update",$data);
+        $this->getView("updateFruit",$data);
         $this->getView("footer");
     }
     public function edit(){
-        print_r($id);
-        $this->parent->getModel("fruits")->update("UPDATE fruits.fruit_table SET fruit_table.name=(:name) where fruits_table.id(:id)",array(":name"=>$_REQUEST["name"],":id"=>$_REQUEST["id"]));
+        $this->parent->getModel("fruits")->update("UPDATE fruit_table SET name=(':newname') where id=(:id)",array(":id"=>$_REQUEST["id"],":newname"=>$_GET["newname"]));
         header("Location:/about");
     }
 }?>
