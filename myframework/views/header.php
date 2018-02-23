@@ -35,6 +35,7 @@
             <ul class="nav navbar-nav">
             <li <?=@$data["pagename"]=="home"?'class="active"':''?>><a href="/mycontroller">Home</a></li>
                 <li <?=@$data["pagename"]=="about"?'class="active"':''?>><a href="/about">About</a></li>
+                <li><a href="/api/showApi">Api</a></li>
                 <li <?=@$data["pagename"]=="contact"?'class="active"':''?>><a href="/mycontroller/contact">Contact Form</a></li>
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Links<span class="caret"></span></a>
