@@ -68,11 +68,11 @@
               </div>
               <button type="submit" class="btn btn-default">Login</button><span style="color:red; margin:10px"><?=@$_REQUEST["msg"]?$_REQUEST["msg"]:'';?></span>
               <a href="/createUser" class="navbar-form navbar-right">Create Account</a></form><?}?>
-            <form class="navbar-form navbar-right form-inline" role="search">
+          <!--  <form class="navbar-form navbar-right form-inline" role="search">
               <div class="form-group">
               <button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">Click Me</button>
             </form>
-        </div>
+        </div>-->
           </div>
           <!-- /.navbar-collapse -->
         </div>
