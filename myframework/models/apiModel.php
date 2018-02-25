@@ -12,7 +12,21 @@ class apiModel{
         $service = new Google_Service_Books($client);
         $optParams = array("filter"=>"free-ebooks");
         $request = $service->volumes->listVolumes("Henry David Thoreau",$optParams);
-       return $request;
+        return $request;
     }
+    public function searchYoutube(){
+        if (isset($_GET['q']) && isset($_GET['maxResults'])) {
+            
+            $client = new Google_Client();
+            $client->setApplicationName("sslapi");
+            $client->setDeveloperKey("AIzaSyCOSEt1dL3z9i8owSDTiBLt7RkDjyByrVk");
+            $youtube = new Google_Service_YouTube($client);
+            $searchResponse = $youtube->search->listSearch('id,snippet', array(
+                'q' => $_GET['q'],
+                'maxResults' => $_GET['maxResults']));
+            return $searchResponse;
+        }
+    }
+
 }
 ?>

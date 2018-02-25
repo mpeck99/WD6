@@ -16,6 +16,7 @@
     <link href="./assets/js/bootstrap.min.js" rel="javascript">
   </head>
   <body class="off-canvas-nav-left" style="padding-top:70px;">
+  <div id="fb-root"></div>
 <header>
       <!-- Static navbar -->
     <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
